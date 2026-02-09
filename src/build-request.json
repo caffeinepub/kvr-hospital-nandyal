@@ -1,0 +1,66 @@
+{
+  "kind": "build_request",
+  "title": "Remove any remaining old contact numbers from bottom contact/footer areas",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "text": "Scan the entire frontend codebase and static HTML for any remaining occurrences of the old phone numbers (e.g., “08514-247365”, “08514 247365”, “+91 9618158499”, “9618158499”) and replace them everywhere with the correct KVR Hospital numbers: “08514 220234” and “7207534210”, including updating any corresponding tel: links.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent-1"
+        ],
+        "quotes": [
+          "SOME WHERE SHOWING THE OLD NUMBER PLESE CHECK",
+          "there was down below contact no there is that"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A full-text search of the frontend project (including frontend/index.html and all frontend/src/**/*.tsx files) returns zero matches for the old numbers: 08514-247365, 08514 247365, 9618158499, +91 9618158499.",
+        "All phone numbers rendered anywhere on the landing page (including bottom/below sections such as the footer/contact area) display only: 08514 220234 and 7207534210.",
+        "All call links use the correct tel: targets: tel:08514220234 and tel:7207534210."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Refactor the frontend to define the hospital contact details (phone numbers, tel: links, email, address) in a single shared constant/module and update LandingPage, ContactSection, and Footer to consume these shared values to prevent future inconsistencies.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent-1"
+        ],
+        "quotes": [
+          "SOME WHERE SHOWING THE OLD NUMBER PLESE CHECK"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a single source of truth in the frontend for both phone numbers and their tel: links.",
+        "LandingPage, ContactSection, and Footer no longer hardcode phone numbers directly in component JSX; they reference the shared constants instead.",
+        "After refactor, the UI output remains the same (still showing 08514 220234 and 7207534210), and all tel: links still dial the correct numbers."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or anything in frontend/src/components/ui (these paths are immutable).",
+    "Keep all user-facing text in English."
+  ],
+  "nonGoals": [
+    "No backend/Motoko changes (backend/main.mo should remain unchanged).",
+    "No changes to hospital branding, address, email, specialties, or page layout beyond what is necessary to eliminate the old phone number and prevent recurrence."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

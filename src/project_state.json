@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Edit/update the existing website for KVR Hospital, Nandyal.",
+  "architectural_notes": [
+    "Contact phone numbers should be updated to: 08514 220234 and 7207534210 (replace both previously listed numbers).",
+    "Ensure a full-site scan/update so the old contact number is not shown anywhere (including lower-page sections like Contact area/footer and any other components)."
+  ],
+  "known_issues": [
+    "Old contact number still appears somewhere on the page (reported in a lower/bottom contact section)."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-update-the-website-to-represent-kvr-hospital-nandyal-with-correct-hospital-identity-and-core-contact-details-address-phone-numbers-email-and-clear-24x7-emergency-availability-messaging",
+      "title": "Update the website to represent “KVR Hospital, Nandyal” with correct hospital identity and core contact details (address, phone numbers, email) and clear 24x7 emergency availability messaging.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-clear-responsive-landing-page-structure-suitable-for-a-hospital-website-including-at-minimum-hero-section-about-section-specialties-departments-section-contact-section-and-a-footer-ensure-all-user-facing-text-is-in-english",
+      "title": "Create a clear, responsive landing-page structure suitable for a hospital website, including at minimum: Hero section, About section, Specialties/Departments section, Contact section, and a Footer; ensure all user-facing text is in English.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-prominent-call-to-action-interactions-for-calling-the-hospital-and-reaching-emergency-services-using-tel-links-for-the-listed-phone-numbers-and-a-mailto-link-for-the-email-address",
+      "title": "Add prominent call-to-action interactions for calling the hospital and reaching emergency services, using tel: links for the listed phone numbers and a mailto: link for the email address.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-a-coherent-distinctive-visual-theme-for-the-hospital-website-colors-typography-spacing-and-component-styling-and-apply-it-consistently-across-sections-avoid-a-blue-purple-color-scheme-unless-explicitly-requested-by-the-user-later",
+      "title": "Establish a coherent, distinctive visual theme for the hospital website (colors, typography, spacing, and component styling) and apply it consistently across sections; avoid a blue/purple color scheme unless explicitly requested by the user later.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-on-page-seo-and-accessibility-essentials-for-the-hospital-landing-page-meaningful-page-title-meta-description-semantic-headings-single-h1-accessible-link-button-labels-and-sufficient-color-contrast-for-text",
+      "title": "Add basic on-page SEO and accessibility essentials for the hospital landing page: meaningful page title, meta description, semantic headings (single H1), accessible link/button labels, and sufficient color contrast for text.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-contact-section-layout-that-displays-the-provided-address-and-includes-a-clearly-formatted-how-to-reach-area-text-only-no-maps-geolocation-integrations",
+      "title": "Add a simple Contact section layout that displays the provided address and includes a clearly formatted “How to reach” area (text-only; no maps/geolocation integrations).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-both-existing-contact-phone-numbers-currently-shown-as-08514-247365-and-91-9618158499-across-the-landing-page-with-the-new-numbers-08514-220234-and-7207534210-including-updating-all-corresponding-tel-links",
+      "title": "Replace both existing contact phone numbers (currently shown as “08514-247365” and “+91 9618158499”) across the landing page with the new numbers “08514 220234” and “7207534210”, including updating all corresponding tel: links.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-scan-the-entire-frontend-codebase-and-static-html-for-any-remaining-occurrences-of-the-old-phone-numbers-e-g-08514-247365-08514-247365-91-9618158499-9618158499-and-replace-them-everywhere-with-the-correct-kvr-hospital-numbers-08514-220234-and-7207534210-including-updating-any-corresponding-tel-links",
+      "title": "Scan the entire frontend codebase and static HTML for any remaining occurrences of the old phone numbers (e.g., “08514-247365”, “08514 247365”, “+91 9618158499”, “9618158499”) and replace them everywhere with the correct KVR Hospital numbers: “08514 220234” and “7207534210”, including updating any corresponding tel: links.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-refactor-the-frontend-to-define-the-hospital-contact-details-phone-numbers-tel-links-email-address-in-a-single-shared-constant-module-and-update-landingpage-contactsection-and-footer-to-consume-these-shared-values-to-prevent-future-inconsistencies",
+      "title": "Refactor the frontend to define the hospital contact details (phone numbers, tel: links, email, address) in a single shared constant/module and update LandingPage, ContactSection, and Footer to consume these shared values to prevent future inconsistencies.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Edit the existing website for KVR Hospital (Nandyal).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Update website contact phone numbers: replace both existing numbers with 08514 220234 and 7207534210.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "KVR Hospital Nandyal",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

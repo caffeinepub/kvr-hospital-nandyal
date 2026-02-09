@@ -1,0 +1,69 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Eliminate old phone numbers and centralize KVR Hospital contact details",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "summary": "Remove any remaining old phone numbers from all frontend sources and ensure all tel: links target the correct numbers.",
+      "acceptanceCriteria": [
+        "A full-text search of the frontend project (including frontend/index.html and all frontend/src/**/*.tsx files) returns zero matches for the old numbers: 08514-247365, 08514 247365, 9618158499, +91 9618158499.",
+        "All phone numbers rendered anywhere on the landing page (including bottom/below sections such as the footer/contact area) display only: 08514 220234 and 7207534210.",
+        "All call links use the correct tel: targets: tel:08514220234 and tel:7207534210."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Verify there are no occurrences of old phone numbers in static HTML; if any are found, replace them with the correct display numbers (08514 220234, 7207534210) and ensure any tel: links use tel:08514220234 and tel:7207534210."
+        },
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "Scan for any hardcoded old phone numbers and replace with the correct numbers; ensure both call-to-action links use tel:08514220234 and tel:7207534210 and that only 08514 220234 and 7207534210 are displayed."
+        },
+        {
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Scan for any hardcoded old phone numbers (including within descriptive paragraphs) and replace with the correct numbers; ensure any tel: links use tel:08514220234 and tel:7207534210 and that only 08514 220234 and 7207534210 are displayed."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Scan for any hardcoded old phone numbers and replace with the correct numbers; ensure tel: links use tel:08514220234 and tel:7207534210 and that only 08514 220234 and 7207534210 are displayed."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create a single shared module for hospital contact details and refactor LandingPage, ContactSection, and Footer to use it (no hardcoded phone numbers/tel links).",
+      "acceptanceCriteria": [
+        "There is a single source of truth in the frontend for both phone numbers and their tel: links.",
+        "LandingPage, ContactSection, and Footer no longer hardcode phone numbers directly in component JSX; they reference the shared constants instead.",
+        "After refactor, the UI output remains the same (still showing 08514 220234 and 7207534210), and all tel: links still dial the correct numbers."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/constants/hospitalContact.ts",
+          "operation": "create",
+          "description": "Add a shared, single source-of-truth export for hospital contact details: both phone display strings (08514 220234, 7207534210), their tel: link targets (tel:08514220234, tel:7207534210), and existing email/address values currently used by LandingPage, ContactSection, and Footer."
+        },
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "Refactor to import hospital contact constants and replace hardcoded phone numbers, tel: links, and other contact details (as applicable) with shared values while keeping user-facing text and layout unchanged."
+        },
+        {
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Refactor to import hospital contact constants and replace hardcoded phone numbers and tel: links (including the emergency paragraph mention) and other contact details (as applicable) with shared values while keeping user-facing text and layout unchanged."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Refactor to import hospital contact constants and replace hardcoded phone numbers, tel: links, and other contact details (as applicable) with shared values while keeping user-facing text and layout unchanged."
+        }
+      ]
+    }
+  ]
+}

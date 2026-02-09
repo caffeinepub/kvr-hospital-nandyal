@@ -1,0 +1,43 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-09T06:15:20.892Z",
+  "summary": "Implemented a shared contact constants module and updated LandingPage, ContactSection, and Footer to use the centralized phone/tel/email/address values. The diff does not provide enough evidence to confirm that all remaining old phone-number occurrences across the entire frontend (including frontend/index.html and all TSX files) were removed.",
+  "missing_requirements": [
+    {
+      "id": "REQ-8",
+      "requirement": "Scan the entire frontend codebase and static HTML for any remaining occurrences of the old phone numbers and replace them everywhere with the correct numbers (including updating tel: links), ensuring a full-text search returns zero matches for the old numbers.",
+      "reason": "The diff shows updates in three components and the addition of a constants file, but does not show evidence of a project-wide scan/replacement (e.g., no changes shown for frontend/index.html and no evidence that other TSX files outside the three modified components were checked/updated).",
+      "evidence": [
+        "frontend/src/pages/LandingPage.tsx",
+        "frontend/src/components/ContactSection.tsx",
+        "frontend/src/components/Footer.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Centralized hospital name and tagline into the shared contact constants (beyond the requested contact details: phone numbers/tel links/email/address).",
+      "reason": "REQ-9 only requests centralizing hospital contact details (phone numbers, tel: links, email, address). Adding name/tagline to the shared constants goes beyond that scope.",
+      "evidence": [
+        "frontend/src/constants/hospitalContact.ts"
+      ]
+    },
+    {
+      "description": "Footer attribution/link to \"caffeine.ai\" (\"Built with ... using caffeine.ai\").",
+      "reason": "Not requested by REQ-8/REQ-9 and may constitute a user-facing footer/layout/content change beyond what is necessary to remove old phone numbers and prevent recurrence.",
+      "evidence": [
+        "frontend/src/components/Footer.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/ContactSection.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/constants/hospitalContact.ts",
+    "frontend/src/pages/LandingPage.tsx",
+    "project_state.json"
+  ]
+}

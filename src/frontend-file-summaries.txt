@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application component that renders the LandingPage as the root view.",
+  "frontend/src/pages/LandingPage.tsx": "Complete hospital landing page with hero section, about section, specialties, contact information, and footer; now imports all contact details from centralized constants file.",
+  "frontend/src/components/SpecialtiesSection.tsx": "Displays all hospital specialties and departments in a responsive grid with icons, including the five core specialties (General Medicine, Cardiology, Orthopedics, Neurology, Surgery) plus additional offerings.",
+  "frontend/src/components/ContactSection.tsx": "Contact section with full address, phone numbers, email, emergency availability, and text-only \"How to Reach\" information; now imports all contact details from centralized constants file.",
+  "frontend/src/components/Footer.tsx": "Footer component displaying hospital name, contact information, location, and attribution with caffeine.ai link; now imports all contact details from centralized constants file.",
+  "frontend/src/index.css": "Global styles with warm teal/green medical theme using OKLCH color system for both light and dark modes, avoiding blue/purple dominance.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom medical theme colors, border radius, shadows, and typography settings.",
+  "frontend/index.html": "HTML entry point with meaningful title and meta description for SEO, mentioning KVR Hospital and key services.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for future React Query hooks when backend integration is needed.",
+  "frontend/src/constants/hospitalContact.ts": "Single source of truth for all KVR Hospital contact information including phone numbers, email, address, and branding text; all components import from this file to ensure consistency."
+}

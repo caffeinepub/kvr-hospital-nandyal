@@ -1,0 +1,62 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-09T06:15:20.894Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-8",
+        "summary": "Scan the entire frontend codebase and static HTML for any remaining occurrences of the old phone numbers (e.g., “08514-247365”, “08514 247365”, “+91 9618158499”, “9618158499”) and replace them everywhere with the correct KVR Hospital numbers: “08514 220234” and “7207534210”, including updating any corresponding tel: links.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/components/ContactSection.tsx",
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/components/ContactSection.tsx",
+          "frontend/src/components/Footer.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Refactor the frontend to define the hospital contact details (phone numbers, tel: links, email, address) in a single shared constant/module and update LandingPage, ContactSection, and Footer to consume these shared values to prevent future inconsistencies.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/constants/hospitalContact.ts",
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/components/ContactSection.tsx",
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/constants/hospitalContact.ts",
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/components/ContactSection.tsx",
+          "frontend/src/components/Footer.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/ContactSection.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/constants/hospitalContact.ts",
+    "frontend/src/pages/LandingPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
