@@ -1,67 +1,56 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Eliminate old phone numbers and centralize KVR Hospital contact details",
+  "title": "Refresh landing-page profile logo and favicon to latest uploaded image",
   "requirements": [
     {
-      "id": "REQ-8",
-      "summary": "Remove any remaining old phone numbers from all frontend sources and ensure all tel: links target the correct numbers.",
+      "id": "REQ-21",
+      "summary": "Regenerate the landing-page hero profile/logo image asset (same path) to match the newly uploaded picture.",
       "acceptanceCriteria": [
-        "A full-text search of the frontend project (including frontend/index.html and all frontend/src/**/*.tsx files) returns zero matches for the old numbers: 08514-247365, 08514 247365, 9618158499, +91 9618158499.",
-        "All phone numbers rendered anywhere on the landing page (including bottom/below sections such as the footer/contact area) display only: 08514 220234 and 7207534210.",
-        "All call links use the correct tel: targets: tel:08514220234 and tel:7207534210."
+        "The landing page hero logo (<img> in frontend/src/pages/LandingPage.tsx) visually matches the newly uploaded image.",
+        "The hero logo continues to load from /assets/generated/kvr-hospital-profile.dim_512x512.png (no broken image).",
+        "The updated profile/logo image is square and looks good at the existing hero sizes (w-32/h-32 and w-40/h-40)."
       ],
       "file_operations": [
         {
-          "path": "frontend/index.html",
+          "path": "frontend/public/assets/generated/kvr-hospital-profile.dim_512x512.png",
           "operation": "modify",
-          "description": "Verify there are no occurrences of old phone numbers in static HTML; if any are found, replace them with the correct display numbers (08514 220234, 7207534210) and ensure any tel: links use tel:08514220234 and tel:7207534210."
-        },
-        {
-          "path": "frontend/src/pages/LandingPage.tsx",
-          "operation": "modify",
-          "description": "Scan for any hardcoded old phone numbers and replace with the correct numbers; ensure both call-to-action links use tel:08514220234 and tel:7207534210 and that only 08514 220234 and 7207534210 are displayed."
-        },
-        {
-          "path": "frontend/src/components/ContactSection.tsx",
-          "operation": "modify",
-          "description": "Scan for any hardcoded old phone numbers (including within descriptive paragraphs) and replace with the correct numbers; ensure any tel: links use tel:08514220234 and tel:7207534210 and that only 08514 220234 and 7207534210 are displayed."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Scan for any hardcoded old phone numbers and replace with the correct numbers; ensure tel: links use tel:08514220234 and tel:7207534210 and that only 08514 220234 and 7207534210 are displayed."
+          "description": "Replace/regenerate this generated profile image asset using the newly uploaded source image \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" while keeping the same filename and 512x512 square output so existing references (e.g., in frontend/src/pages/LandingPage.tsx) remain valid."
         }
       ]
     },
     {
-      "id": "REQ-9",
-      "summary": "Create a single shared module for hospital contact details and refactor LandingPage, ContactSection, and Footer to use it (no hardcoded phone numbers/tel links).",
+      "id": "REQ-22",
+      "summary": "Regenerate the site favicon asset (same path) to match the newly uploaded picture.",
       "acceptanceCriteria": [
-        "There is a single source of truth in the frontend for both phone numbers and their tel: links.",
-        "LandingPage, ContactSection, and Footer no longer hardcode phone numbers directly in component JSX; they reference the shared constants instead.",
-        "After refactor, the UI output remains the same (still showing 08514 220234 and 7207534210), and all tel: links still dial the correct numbers."
+        "Browser tab favicon visually matches the newly uploaded image.",
+        "frontend/index.html continues to reference /assets/generated/kvr-hospital-favicon.dim_32x32.png with no 404s."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/constants/hospitalContact.ts",
-          "operation": "create",
-          "description": "Add a shared, single source-of-truth export for hospital contact details: both phone display strings (08514 220234, 7207534210), their tel: link targets (tel:08514220234, tel:7207534210), and existing email/address values currently used by LandingPage, ContactSection, and Footer."
+          "path": "frontend/public/assets/generated/kvr-hospital-favicon.dim_32x32.png",
+          "operation": "modify",
+          "description": "Replace/regenerate this generated favicon asset using the newly uploaded source image \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" while keeping the same filename and 32x32 output so existing references (e.g., in frontend/index.html) remain valid."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Ensure regenerated profile/logo and favicon derived from the new upload do not include contradictory service text (must not show “Cardiology”).",
+      "acceptanceCriteria": [
+        "The final generated profile/logo image does not display the word \"Cardiology\" anywhere.",
+        "The final generated favicon does not display the word \"Cardiology\" anywhere."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/kvr-hospital-profile.dim_512x512.png",
+          "operation": "modify",
+          "description": "During regeneration, crop/retouch the image derived from \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" so that no user-facing text reads \"Cardiology\" anywhere in the 512x512 profile/logo output."
         },
         {
-          "path": "frontend/src/pages/LandingPage.tsx",
+          "path": "frontend/public/assets/generated/kvr-hospital-favicon.dim_32x32.png",
           "operation": "modify",
-          "description": "Refactor to import hospital contact constants and replace hardcoded phone numbers, tel: links, and other contact details (as applicable) with shared values while keeping user-facing text and layout unchanged."
-        },
-        {
-          "path": "frontend/src/components/ContactSection.tsx",
-          "operation": "modify",
-          "description": "Refactor to import hospital contact constants and replace hardcoded phone numbers and tel: links (including the emergency paragraph mention) and other contact details (as applicable) with shared values while keeping user-facing text and layout unchanged."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Refactor to import hospital contact constants and replace hardcoded phone numbers, tel: links, and other contact details (as applicable) with shared values while keeping user-facing text and layout unchanged."
+          "description": "During regeneration, ensure the 32x32 favicon derived from \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" contains no visible \"Cardiology\" text (use cropping/retouching/clean background as needed)."
         }
       ]
     }

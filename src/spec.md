@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Remove any remaining occurrences of old phone numbers across the frontend (especially footer/contact areas) and ensure only the correct KVR Hospital numbers and call links are shown.
+**Goal:** Update the landing page hero profile/logo image and the site favicon to match the latest uploaded display picture while ensuring “Cardiology” is not visible.
 
 **Planned changes:**
-- Search all frontend files (including `frontend/index.html` and `frontend/src/**/*.tsx`) for old phone numbers and replace them with the correct numbers, updating any `tel:` links accordingly.
-- Introduce a single shared frontend constant/module for hospital contact details (phone numbers, `tel:` links, email, address) and refactor LandingPage, ContactSection, and Footer to consume these shared values instead of hardcoding.
+- Regenerate the existing profile/logo asset at `/assets/generated/kvr-hospital-profile.dim_512x512.png` using the newly uploaded image, cropped to a square and suitable for the current hero display sizes.
+- Regenerate the existing favicon asset at `/assets/generated/kvr-hospital-favicon.dim_32x32.png` derived from the newly uploaded image.
+- Remove/avoid any visible “Cardiology” text in both the regenerated profile/logo image and favicon while keeping the same asset paths referenced by the frontend.
 
-**User-visible outcome:** The landing page (including footer/contact sections) displays only **08514 220234** and **7207534210**, and all call buttons/links dial **tel:08514220234** and **tel:7207534210**.
+**User-visible outcome:** The landing page hero logo and browser tab favicon display the updated branding image (without “Cardiology”), and both assets continue to load from the same existing URLs without broken links.

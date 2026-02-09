@@ -2,13 +2,9 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-scan-the-entire-frontend-codebase-and-static-html-for-any-remaining-occurrences-of-the-old-phone-numbers-e-g-08514-247365-08514-247365-91-9618158499-9618158499-and-replace-them-everywhere-with-the-correct-kvr-hospital-numbers-08514-220234-and-7207534210-including-updating-any-corresponding-tel-links",
-      "featureTitle": "Scan the entire frontend codebase and static HTML for any remaining occurrences of the old phone numbers (e.g., “08514-247365”, “08514 247365”, “+91 9618158499”, “9618158499”) and replace them everywhere with the correct KVR Hospital numbers: “08514 220234” and “7207534210”, including updating any corresponding tel: links.",
-      "files": [
-        "frontend/src/components/ContactSection.tsx",
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/pages/LandingPage.tsx"
-      ],
+      "featureId": "feature-update-the-site-profile-logo-image-to-reflect-the-newly-uploaded-file-whatsapp-image-2026-02-09-at-12-06-36-1-jpeg-by-regenerating-the-existing-generated-profile-image-asset-used-on-the-landing-page-hero-keep-the-same-referenced-path-assets-generated-kvr-hospital-profile-dim-512x512-png",
+      "featureTitle": "Update the site profile/logo image to reflect the newly uploaded file \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" by regenerating the existing generated profile image asset used on the landing page hero (keep the same referenced path \"/assets/generated/kvr-hospital-profile.dim_512x512.png\").",
+      "files": [],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -17,19 +13,14 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-8"
+        "REQ-21"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-refactor-the-frontend-to-define-the-hospital-contact-details-phone-numbers-tel-links-email-address-in-a-single-shared-constant-module-and-update-landingpage-contactsection-and-footer-to-consume-these-shared-values-to-prevent-future-inconsistencies",
-      "featureTitle": "Refactor the frontend to define the hospital contact details (phone numbers, tel: links, email, address) in a single shared constant/module and update LandingPage, ContactSection, and Footer to consume these shared values to prevent future inconsistencies.",
-      "files": [
-        "frontend/src/components/ContactSection.tsx",
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/constants/hospitalContact.ts",
-        "frontend/src/pages/LandingPage.tsx"
-      ],
+      "featureId": "feature-update-the-site-favicon-to-reflect-the-newly-uploaded-file-whatsapp-image-2026-02-09-at-12-06-36-1-jpeg-by-regenerating-the-existing-generated-favicon-asset-referenced-in-frontend-index-html-keep-the-same-referenced-path-assets-generated-kvr-hospital-favicon-dim-32x32-png",
+      "featureTitle": "Update the site favicon to reflect the newly uploaded file \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" by regenerating the existing generated favicon asset referenced in frontend/index.html (keep the same referenced path \"/assets/generated/kvr-hospital-favicon.dim_32x32.png\").",
+      "files": [],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -38,7 +29,23 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-9"
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-updated-profile-logo-image-derived-from-whatsapp-image-2026-02-09-at-12-06-36-1-jpeg-does-not-contain-any-user-facing-text-that-contradicts-the-current-site-content-specifically-it-must-not-show-cardiology-as-an-available-service-department",
+      "featureTitle": "Ensure the updated profile/logo image derived from \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" does not contain any user-facing text that contradicts the current site content, specifically it must not show \"Cardiology\" as an available service/department.",
+      "files": [],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
       ],
       "confidence": "high"
     }

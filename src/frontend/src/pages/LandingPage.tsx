@@ -22,7 +22,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="flex-shrink-0">
               <img 
-                src="/assets/generated/kvr-hospital-logo.dim_512x512.png" 
+                src="/assets/generated/kvr-hospital-profile.dim_512x512.png" 
                 alt="KVR Hospital Logo" 
                 className="w-32 h-32 md:w-40 md:h-40 object-contain"
               />

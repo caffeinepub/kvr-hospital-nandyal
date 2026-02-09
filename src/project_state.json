@@ -1,15 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
+  "projectStateVersion": 19,
   "summary": "Edit/update the existing website for KVR Hospital, Nandyal.",
   "architectural_notes": [
     "Contact phone numbers should be updated to: 08514 220234 and 7207534210 (replace both previously listed numbers).",
-    "Ensure a full-site scan/update so the old contact number is not shown anywhere (including lower-page sections like Contact area/footer and any other components)."
+    "Ensure a full-site scan/update so the old contact number is not shown anywhere (including lower-page sections like Contact area/footer and any other components).",
+    "Do not publish specific doctor names/credentials unless confirmed by the user; treat staff listings as user-provided content to avoid outdated/incorrect information.",
+    "Do not display a Cardiology department/section on the website until the user explicitly provides updated cardiology service/doctor details to publish."
   ],
   "known_issues": [
     "Old contact number still appears somewhere on the page (reported in a lower/bottom contact section)."
   ],
-  "isFixRequest": true,
+  "isFixRequest": false,
+  "imageRequirements": "## Edit Images\n- Replace the profile/logo image with the newly uploaded picture while removing/avoiding any visible \"Cardiology\" service text (kvr-hospital-profile.dim_512x512.png > kvr-hospital-profile.dim_512x512.png)\n- Replace the favicon image with one derived from the newly uploaded picture while removing/avoiding any visible \"Cardiology\" service text (kvr-hospital-favicon.dim_32x32.png > kvr-hospital-favicon.dim_32x32.png)",
   "existing_features": [
     {
       "id": "feature-update-the-website-to-represent-kvr-hospital-nandyal-with-correct-hospital-identity-and-core-contact-details-address-phone-numbers-email-and-clear-24x7-emergency-availability-messaging",
@@ -82,6 +85,110 @@
         "REQ-9"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-any-public-facing-mention-of-the-outdated-cardiology-doctor-name-dr-m-murali-krishna-from-the-kvr-hospital-nandyal-website-and-ensure-the-site-does-not-display-a-specific-cardiology-doctor-name-unless-a-new-current-name-is-explicitly-provided-in-code",
+      "title": "Remove any public-facing mention of the outdated cardiology doctor name (\"Dr. M. Murali Krishna\") from the KVR Hospital, Nandyal website, and ensure the site does not display a specific cardiology doctor name unless a new current name is explicitly provided in code.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-single-source-of-truth-constant-for-department-doctor-display-names-starting-with-cardiology-and-refactor-the-ui-to-consume-that-constant-wherever-cardiology-doctor-consultant-text-is-shown-so-future-updates-require-changing-only-one-file",
+      "title": "Add a single-source-of-truth constant for department/doctor display names (starting with Cardiology) and refactor the UI to consume that constant wherever cardiology doctor/consultant text is shown, so future updates require changing only one file.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-cardiology-department-from-the-centralized-department-display-constants-so-it-is-no-longer-available-to-the-ui",
+      "title": "Remove the Cardiology department from the centralized department display constants so it is no longer available to the UI.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-cardiology-from-the-specialties-departments-ui-so-it-is-not-displayed-anywhere-on-the-landing-page-specialties-grid-including-removing-the-heart-icon-import-if-unused-after-removal",
+      "title": "Remove Cardiology from the Specialties/Departments UI so it is not displayed anywhere on the landing page specialties grid (including removing the Heart icon import if unused after removal).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-no-old-outdated-contact-phone-numbers-are-displayed-anywhere-on-the-site-by-locating-the-remaining-lower-bottom-section-still-showing-an-old-number-and-replacing-it-to-use-the-centralized-values-from-frontend-src-constants-hospitalcontact-ts-including-updating-any-corresponding-tel-link",
+      "title": "Ensure no old/outdated contact phone numbers are displayed anywhere on the site by locating the remaining lower/bottom section still showing an old number and replacing it to use the centralized values from frontend/src/constants/hospitalContact.ts (including updating any corresponding tel: link).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-any-remaining-public-facing-references-that-present-cardiology-as-an-available-specialty-department-in-static-seo-text-including-updating-frontend-index-html-meta-description-to-no-longer-list-cardiology",
+      "title": "Remove any remaining public-facing references that present “Cardiology” as an available specialty/department in static SEO text, including updating frontend/index.html meta description to no longer list Cardiology.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-square-profile-picture-logo-image-from-the-user-uploaded-file-whatsapp-image-2026-02-09-at-12-06-36-jpeg-and-add-it-as-a-static-asset-under-frontend-public-assets-generated-then-update-the-landing-page-hero-logo-to-use-this-new-asset-instead-of-the-current-assets-generated-kvr-hospital-logo-dim-512x512-png",
+      "title": "Create a new square \"profile picture\" logo image from the user-uploaded file \"WhatsApp Image 2026-02-09 at 12.06.36.jpeg\" and add it as a static asset under frontend/public/assets/generated, then update the landing page hero logo to use this new asset instead of the current \"/assets/generated/kvr-hospital-logo.dim_512x512.png\".",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-the-new-profile-picture-as-the-site-favicon-by-adding-appropriate-link-rel-icon-tag-s-in-frontend-index-html-that-point-to-the-generated-favicon-asset-s-placed-in-frontend-public-assets-generated",
+      "title": "Use the new profile picture as the site favicon by adding appropriate <link rel=\"icon\"> tag(s) in frontend/index.html that point to the generated favicon asset(s) placed in frontend/public/assets/generated.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-profile-picture-image-used-on-the-site-does-not-introduce-any-user-facing-text-that-contradicts-the-current-website-content-specifically-do-not-show-cardiology-as-an-available-service-department-in-the-profile-picture",
+      "title": "Ensure the profile-picture image used on the site does not introduce any user-facing text that contradicts the current website content (specifically: do not show “Cardiology” as an available service/department in the profile picture).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-website-to-display-the-user-s-latest-uploaded-picture-as-the-site-profile-logo-image-by-regenerating-the-existing-generated-assets-and-ensuring-they-are-the-ones-referenced-in-the-ui-hero-logo-and-in-the-favicon-links",
+      "title": "Update the website to display the user’s latest uploaded picture as the site profile/logo image by regenerating the existing generated assets and ensuring they are the ones referenced in the UI (hero logo) and in the favicon links.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-profile-logo-image-to-reflect-the-newly-uploaded-file-whatsapp-image-2026-02-09-at-12-06-36-1-jpeg-by-regenerating-the-existing-generated-profile-image-asset-used-on-the-landing-page-hero-keep-the-same-referenced-path-assets-generated-kvr-hospital-profile-dim-512x512-png",
+      "title": "Update the site profile/logo image to reflect the newly uploaded file \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" by regenerating the existing generated profile image asset used on the landing page hero (keep the same referenced path \"/assets/generated/kvr-hospital-profile.dim_512x512.png\").",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-favicon-to-reflect-the-newly-uploaded-file-whatsapp-image-2026-02-09-at-12-06-36-1-jpeg-by-regenerating-the-existing-generated-favicon-asset-referenced-in-frontend-index-html-keep-the-same-referenced-path-assets-generated-kvr-hospital-favicon-dim-32x32-png",
+      "title": "Update the site favicon to reflect the newly uploaded file \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" by regenerating the existing generated favicon asset referenced in frontend/index.html (keep the same referenced path \"/assets/generated/kvr-hospital-favicon.dim_32x32.png\").",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-updated-profile-logo-image-derived-from-whatsapp-image-2026-02-09-at-12-06-36-1-jpeg-does-not-contain-any-user-facing-text-that-contradicts-the-current-site-content-specifically-it-must-not-show-cardiology-as-an-available-service-department",
+      "title": "Ensure the updated profile/logo image derived from \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" does not contain any user-facing text that contradicts the current site content, specifically it must not show \"Cardiology\" as an available service/department.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -94,6 +201,26 @@
     {
       "id": "AR-2",
       "summary": "Update website contact phone numbers: replace both existing numbers with 08514 220234 and 7207534210.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Remove the Cardiology department section from the website entirely (since there is currently no cardiology doctor).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Scan the frontend for any remaining user-facing references to “Cardiology” that relate to a department offering and remove them to ensure the site does not present Cardiology as an available department.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update/set a profile picture to reflect the latest KVR Hospital website/branding (\"put it on profile pic\").",
       "reqIds": [],
       "status": "pending"
     }

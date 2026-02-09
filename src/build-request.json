@@ -1,57 +1,76 @@
 {
   "kind": "build_request",
-  "title": "Remove any remaining old contact numbers from bottom contact/footer areas",
+  "title": "Update site profile/logo display picture to the latest uploaded image",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-8",
-      "text": "Scan the entire frontend codebase and static HTML for any remaining occurrences of the old phone numbers (e.g., “08514-247365”, “08514 247365”, “+91 9618158499”, “9618158499”) and replace them everywhere with the correct KVR Hospital numbers: “08514 220234” and “7207534210”, including updating any corresponding tel: links.",
+      "id": "REQ-21",
+      "text": "Update the site profile/logo image to reflect the newly uploaded file \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" by regenerating the existing generated profile image asset used on the landing page hero (keep the same referenced path \"/assets/generated/kvr-hospital-profile.dim_512x512.png\").",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-recent-1"
+          "recent-messages"
         ],
         "quotes": [
-          "SOME WHERE SHOWING THE OLD NUMBER PLESE CHECK",
-          "there was down below contact no there is that"
+          "display picture change",
+          "The user has uploaded 1 image(s): WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg."
         ]
       },
       "acceptanceCriteria": [
-        "A full-text search of the frontend project (including frontend/index.html and all frontend/src/**/*.tsx files) returns zero matches for the old numbers: 08514-247365, 08514 247365, 9618158499, +91 9618158499.",
-        "All phone numbers rendered anywhere on the landing page (including bottom/below sections such as the footer/contact area) display only: 08514 220234 and 7207534210.",
-        "All call links use the correct tel: targets: tel:08514220234 and tel:7207534210."
+        "The landing page hero logo (<img> in frontend/src/pages/LandingPage.tsx) visually matches the newly uploaded image.",
+        "The hero logo continues to load from /assets/generated/kvr-hospital-profile.dim_512x512.png (no broken image).",
+        "The updated profile/logo image is square and looks good at the existing hero sizes (w-32/h-32 and w-40/h-40)."
       ]
     },
     {
-      "id": "REQ-9",
-      "text": "Refactor the frontend to define the hospital contact details (phone numbers, tel: links, email, address) in a single shared constant/module and update LandingPage, ContactSection, and Footer to consume these shared values to prevent future inconsistencies.",
+      "id": "REQ-22",
+      "text": "Update the site favicon to reflect the newly uploaded file \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" by regenerating the existing generated favicon asset referenced in frontend/index.html (keep the same referenced path \"/assets/generated/kvr-hospital-favicon.dim_32x32.png\").",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-recent-1"
+          "recent-messages"
         ],
         "quotes": [
-          "SOME WHERE SHOWING THE OLD NUMBER PLESE CHECK"
+          "display picture change"
         ]
       },
       "acceptanceCriteria": [
-        "There is a single source of truth in the frontend for both phone numbers and their tel: links.",
-        "LandingPage, ContactSection, and Footer no longer hardcode phone numbers directly in component JSX; they reference the shared constants instead.",
-        "After refactor, the UI output remains the same (still showing 08514 220234 and 7207534210), and all tel: links still dial the correct numbers."
+        "Browser tab favicon visually matches the newly uploaded image.",
+        "frontend/index.html continues to reference /assets/generated/kvr-hospital-favicon.dim_32x32.png with no 404s."
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Ensure the updated profile/logo image derived from \"WhatsApp Image 2026-02-09 at 12.06.36-1.jpeg\" does not contain any user-facing text that contradicts the current site content, specifically it must not show \"Cardiology\" as an available service/department.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "display picture change"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The final generated profile/logo image does not display the word \"Cardiology\" anywhere.",
+        "The final generated favicon does not display the word \"Cardiology\" anywhere."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or anything in frontend/src/components/ui (these paths are immutable).",
-    "Keep all user-facing text in English."
+    "Frontend files under frontend/src/components/ui and other paths listed in frontend.immutablePaths must not be edited directly; compose them instead.",
+    "Keep the backend as a single Motoko actor; no backend changes are required for this request."
   ],
   "nonGoals": [
-    "No backend/Motoko changes (backend/main.mo should remain unchanged).",
-    "No changes to hospital branding, address, email, specialties, or page layout beyond what is necessary to eliminate the old phone number and prevent recurrence."
+    "Do not change hospital phone numbers, email, address, or other contact copy as part of this request.",
+    "Do not add new departments or reintroduce Cardiology anywhere in the site content."
   ],
   "imageRequirements": {
     "required": [],
-    "edits": []
+    "edits": [
+      "Replace the profile/logo image with the newly uploaded picture while removing/avoiding any visible \"Cardiology\" service text (kvr-hospital-profile.dim_512x512.png > kvr-hospital-profile.dim_512x512.png)",
+      "Replace the favicon image with one derived from the newly uploaded picture while removing/avoiding any visible \"Cardiology\" service text (kvr-hospital-favicon.dim_32x32.png > kvr-hospital-favicon.dim_32x32.png)"
+    ]
   },
   "userProfileUpdate": {
     "goalsToAdd": [],

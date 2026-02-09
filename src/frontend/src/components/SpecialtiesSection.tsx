@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { 
-  Heart, 
   Stethoscope, 
   Bone, 
   Brain, 
@@ -10,47 +9,43 @@ import {
   Baby,
   Pill
 } from 'lucide-react';
+import { DEPARTMENT_DISPLAY } from '@/constants/departmentDisplay';
 
 const specialties = [
   {
-    name: 'General Medicine',
+    name: DEPARTMENT_DISPLAY.generalMedicine.name,
     icon: Stethoscope,
-    description: 'Comprehensive primary care and treatment for common medical conditions.'
+    description: DEPARTMENT_DISPLAY.generalMedicine.description
   },
   {
-    name: 'Cardiology',
-    icon: Heart,
-    description: 'Expert diagnosis and treatment of heart and cardiovascular conditions.'
-  },
-  {
-    name: 'Orthopedics',
+    name: DEPARTMENT_DISPLAY.orthopedics.name,
     icon: Bone,
-    description: 'Specialized care for bone, joint, and musculoskeletal disorders.'
+    description: DEPARTMENT_DISPLAY.orthopedics.description
   },
   {
-    name: 'Neurology',
+    name: DEPARTMENT_DISPLAY.neurology.name,
     icon: Brain,
-    description: 'Advanced treatment for neurological disorders and brain conditions.'
+    description: DEPARTMENT_DISPLAY.neurology.description
   },
   {
-    name: 'Surgery',
+    name: DEPARTMENT_DISPLAY.surgery.name,
     icon: Activity,
-    description: 'State-of-the-art surgical procedures with experienced surgeons.'
+    description: DEPARTMENT_DISPLAY.surgery.description
   },
   {
-    name: 'Ophthalmology',
+    name: DEPARTMENT_DISPLAY.ophthalmology.name,
     icon: Eye,
-    description: 'Complete eye care services and vision treatment (additional offering).'
+    description: DEPARTMENT_DISPLAY.ophthalmology.description
   },
   {
-    name: 'Pediatrics',
+    name: DEPARTMENT_DISPLAY.pediatrics.name,
     icon: Baby,
-    description: 'Specialized healthcare for infants, children, and adolescents (additional offering).'
+    description: DEPARTMENT_DISPLAY.pediatrics.description
   },
   {
-    name: 'Pharmacy',
+    name: DEPARTMENT_DISPLAY.pharmacy.name,
     icon: Pill,
-    description: 'In-house pharmacy with a wide range of medications (additional offering).'
+    description: DEPARTMENT_DISPLAY.pharmacy.description
   }
 ];
 
